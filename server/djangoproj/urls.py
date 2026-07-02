@@ -18,9 +18,16 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 from django.conf.urls.static import static
 from django.conf import settings
+from my_app import views
+from other_app.views import Home
+from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('djangoapp/', include('djangoapp.urls')),
     path('', TemplateView.as_view(template_name="Home.html")),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('about/', TemplateView.as_view(template_name="about.html")),
+    path('', views.home, name='home'),
+    path('', Home.as_view(), name='home'),
+    path('blog/', include('blog.urls')),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT),
