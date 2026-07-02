@@ -1,0 +1,6 @@
+curl -X POST "http://127.0.0.1:8001/djangoapp/login" \
+  -H "Content-Type: application/json" \
+  -d '{"userName": "capstone_admin", "password": "CapstoneAdmin2026"}'
+
+Output:
+{"userName": "capstone_admin", "status": "Authenticated"}
