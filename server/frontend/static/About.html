@@ -1,74 +1,177 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <!-- Link the style sheet here -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Best Cars</title>
   <link rel="stylesheet" href="/static/style.css">
   <link rel="stylesheet" href="/static/bootstrap.min.css">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #eef9fb 0%, #f7fcff 100%);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #1f2d3d;
+    }
 
+    .about-wrapper {
+      max-width: 1080px;
+      margin: 2.5rem auto;
+      padding: 0 1rem 2rem;
+    }
+
+    .about-hero {
+      background: #ffffff;
+      border: 1px solid #d6ebf0;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(24, 64, 87, 0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .about-copy {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #334e68;
+      margin: 0;
+    }
+
+    .values {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .value-card {
+      border: 1px solid #deedf3;
+      border-radius: 14px;
+      padding: 1rem;
+      background: #fafdff;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .team-card {
+      border: 1px solid #c9e4ec;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 6px 16px rgba(17, 64, 80, 0.08);
+    }
+
+    .team-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .team-card .card-body {
+      padding: 1rem;
+    }
+
+    .top-nav {
+      background-color: darkturquoise;
+      min-height: 1in;
+    }
+
+    .brand-title {
+      padding-right: 5%;
+    }
+
+    .nav-link-large {
+      font-size: larger;
+    }
+
+    .copy-spaced {
+      margin-top: 1rem;
+    }
+  </style>
 </head>
-<div>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light top-nav">
     <div class="container-fluid">
-      <h2 style="padding-right: 5%;">Dealerships</h2>
+      <h2 class="brand-title">Dealerships</h2>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" aria-current="page" href="/">Home</a>
+            <a class="nav-link nav-link-large" aria-current="page" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" style="font-size: larger;" href="/about">About Us</a>
+            <a class="nav-link nav-link-large active" href="/about">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="font-size: larger;" href="/contact">Contact Us</a>
+            <a class="nav-link nav-link-large" href="/contact">Contact Us</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  
-    <div class="card" style="width: 80%;margin: auto; margin-top:5%;">
+
+  <main class="about-wrapper">
+    <section class="about-hero">
       <div class="banner" name="about-header">
-      <!-- Insert header information here -->
-      <h1>About Us</h1>
-      Welcome to Best Cars dealership, home to the best cars in North America. We deal in selling domestic and imported cars at reasonable prices.
-      We sell all kinds of cars for all occassions with satisfaction of any taste guaranteed.  
+        <h1>About Us</h1>
+        <p class="about-copy">Welcome to Best Cars dealership, home to the best cars in North America. We deal in selling domestic and imported cars at reasonable prices.</p>
       </div>
-      <div style="display: flex;flex-direction: row; margin:auto">
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="https://www.google.com/url?sa=t&source=web&rct=j&url=https%3A%2F%2Fwww.magnific.com%2Ffree-photos-vectors%2Fpeople-posing-png&opi=89978449" alt="Card image">
-        <div class="card-body">
-          <p class="title">Charles</p>
-          <p>Technical Advisor</p>
-          <p class="card-text">Charles is the best in the technical aspects of the car. In case you want to know what car to use for an occassion do not hesitate to ask Charles.</p>
-          <p>charlymars@capstone.co</p>
+      <p class="about-copy copy-spaced">
+        Since 2008, we have helped thousands of drivers find dependable vehicles that match their budget and lifestyle. Our team inspects every vehicle, offers transparent pricing, and supports customers long after the sale with trusted service partners.
+      </p>
+
+      <div class="values">
+        <div class="value-card">
+          <h5>Trusted Inventory</h5>
+          <p>Every car goes through a multi-point quality check before it reaches our lot.</p>
+        </div>
+        <div class="value-card">
+          <h5>Flexible Financing</h5>
+          <p>We work with multiple lenders to provide financing options for different needs.</p>
+        </div>
+        <div class="value-card">
+          <h5>Customer First</h5>
+          <p>From first visit to final paperwork, our advisors keep things simple and clear.</p>
         </div>
       </div>
+    </section>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="https://photos.peopleimages.com/picture/202306/2836100-png-young-woman-thinking--fit_400_400.jpg" alt="Card image">
+    <section class="team-grid">
+      <article class="team-card">
+        <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg" alt="Portrait of Michael Carter">
         <div class="card-body">
-          <p class="title">Laura</p>
-          <p>Sales Manager</p>
-          <p class="card-text">Laura is the best in the car business. She has impeccable taste in cars of kinds.</p>
-          <p>Stelselaurat@capstone.co</p>
+          <p class="title">Michael Carter</p>
+          <p><strong>Senior Technical Advisor</strong></p>
+          <p class="card-text">Michael has over 12 years of automotive diagnostic experience and helps customers compare performance, safety, and long-term reliability.</p>
+          <p>michael.carter@bestcars.com</p>
         </div>
-      </div>
+      </article>
 
-      <div class="card" style="width: 30%;">
-        <img class="card-img-top" src="https://www.google.com/url?sa=t&source=web&rct=j&url=https%3A%2F%2Fwww.rawpixel.com%2Fsearch%2Fasian%2520people&opi=89978449" alt="Card image">
+      <article class="team-card">
+        <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg" alt="Portrait of Ava Thompson">
         <div class="card-body">
-          <p class="title">Lin</p>
-          <p>Public Relations</p>
-          <p class="card-text">Lin is warm and kind to everyone. If you have a challenge or any questions feel free to see her.</p>
-          <p>lin32zhou@capstone.co</p>
+          <p class="title">Ava Thompson</p>
+          <p><strong>Sales Manager</strong></p>
+          <p class="card-text">Ava specializes in matching families and first-time buyers with practical vehicles and straightforward financing plans.</p>
+          <p>ava.thompson@bestcars.com</p>
         </div>
-      </div>
-    </div>
-    </div>
-    </div>
-    
-</div>
+      </article>
 
+      <article class="team-card">
+        <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg" alt="Portrait of Daniel Kim">
+        <div class="card-body">
+          <p class="title">Daniel Kim</p>
+          <p><strong>Customer Relations Lead</strong></p>
+          <p class="card-text">Daniel ensures each customer gets timely updates, smooth delivery coordination, and quick follow-up support after purchase.</p>
+          <p>daniel.kim@bestcars.com</p>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
 </html>
