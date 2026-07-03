@@ -1,0 +1,26 @@
+$ gh run list
+completed	success	Add GitHub Actions CI workflow	CI Pipeline	main	push	28648370391	11s	2026-07-03T08:27:20Z
+
+$ gh run view 28648370391 --verbose
+
+✓ main CI Pipeline · 28648370391
+Triggered via push about 1 minute ago
+
+JOBS
+✓ build-and-test in 7s (ID 84960246687)
+  ✓ Set up job
+  ✓ Checkout repository
+  ✓ Display workflow context
+  ✓ Validate frontend package file
+  ✓ Validate backend requirements file
+  ✓ CI success marker
+  ✓ Post Checkout repository
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+build-and-test: .github#2
+
+
+For more information about the job, try: gh run view --job=84960246687
+View this run on GitHub: https://github.com/Panafrican101/xrwvm-fullstack_developer_capstone/actions/runs/28648370391

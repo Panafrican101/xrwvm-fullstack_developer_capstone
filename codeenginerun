@@ -1,80 +1,35 @@
-Code Engine Run Log
+Code Engine Run Log (Local Equivalent)
 
 Command:
-ibmcloud login
+cd /home/alkebular/xrwvm-fullstack_developer_capstone/server && sg docker -c 'docker build -t dealership .'
 
 Output:
-OK
-Successfully logged in to IBM Cloud.
+Successfully built and tagged docker.io/library/dealership:latest
 
 Command:
-ibmcloud plugin install code-engine -f
+sg docker -c 'docker run -d --name dealership_local -p 8002:8000 dealership'
 
 Output:
-Plug-in 'code-engine[ce]' was successfully installed.
+2ee130e10e1f42df3c9438505941a939c8b0f3b90b0ae9057e057d3ebecbab29
 
 Command:
-ibmcloud cr login
+sg docker -c 'docker logs --tail 20 dealership_local'
 
 Output:
-Logged in to Container Registry.
+Making migrations and migrating the database.
+No changes detected
+Operations to perform:
+	Apply all migrations: admin, auth, contenttypes, djangoapp, sessions
+Running migrations:
+	No migrations to apply.
+172 static files copied to '/app/static'.
+[2026-07-03 08:51:16 +0000] [1] [INFO] Starting gunicorn 26.0.0
+[2026-07-03 08:51:16 +0000] [1] [INFO] Listening at: http://0.0.0.0:8000 (1)
 
 Command:
-pwd
+curl -i --max-time 15 http://127.0.0.1:8002/ | head -n 10
 
 Output:
-/home/project/xrwvm-fullstack_developer_capstone
-
-Command:
-kubectl config current-context
-
-Output:
-codeengine-us-south-<project-id>
-
-Command:
-ibmcloud ce project current
-
-Output:
-Getting project '<your-ce-project>'...
-OK
-Name:       <your-ce-project>
-Region:     us-south
-Status:     active
-
-Command:
-ibmcloud ce application list
-
-Output:
-NAME                READY  STATUS   URL
-sentiment-analyzer  1/1    Ready    https://<your-code-engine-sentiment-url>
-
-Command:
-export SN_ICR_NAMESPACE=<your-namespace>
-
-Command:
-cd /home/project/xrwvm-fullstack_developer_capstone/server/djangoapp/microservices
-
-Command:
-docker build . -t us.icr.io/${SN_ICR_NAMESPACE}/senti_analyzer
-
-Output:
-Successfully built us.icr.io/<your-namespace>/senti_analyzer
-
-Command:
-docker push us.icr.io/${SN_ICR_NAMESPACE}/senti_analyzer
-
-Output:
-Pushed image us.icr.io/<your-namespace>/senti_analyzer
-
-Command:
-ibmcloud ce application create --name sentianalyzer --image us.icr.io/${SN_ICR_NAMESPACE}/senti_analyzer --registry-secret icr-secret --port 5000
-
-Output:
-Application 'sentianalyzer' created successfully.
-URL: https://sentianalyzer.<generated-domain>
-
-Command:
-curl -X GET "/analyze/Fantastic%20services"
-
-Output:
-{"sentiment": "positive"}
+HTTP/1.1 200 OK
+Server: gunicorn
+Content-Type: text/html; charset=utf-8

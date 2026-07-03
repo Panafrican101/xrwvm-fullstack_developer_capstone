@@ -1,4 +1,4 @@
-Combined Submission Run Log
+Combined Submission Run Log (Local)
 
 1) Backend service
 
@@ -14,18 +14,6 @@ curl -s http://127.0.0.1:3030/
 Output:
 Welcome to the Mongoose API
 
-Command:
-curl -s http://127.0.0.1:3030/fetchDealers | head -c 220
-
-Output:
-[{"id":1,"city":"El Paso","state":"Texas","address":"3 Nova Court","zip":"88563","lat":31.6948,"long":-106.3,"short_name":"Holdlamis","full_name":"Holdlamis Car Dealership"},{"id":2,"city":"Minneapolis","state":"Minnesota"...
-
-Command:
-curl -s http://127.0.0.1:3030/fetchReviews | head -c 220
-
-Output:
-[{"id":1,"name":"Berkly Shepley","dealership":15,"review":"Total grid-enabled service-desk","purchase":true,"purchase_date":"07/11/2020","car_make":"Audi","car_model":"A6","car_year":2010,"sentiment":"neutral"},{"id":2,...
-
 2) Sentiment service
 
 Command:
@@ -34,8 +22,22 @@ curl -s http://127.0.0.1:5000/analyze/Fantastic%20services
 Output:
 {"sentiment": "positive"}
 
-3) Result notes
+3) Containerized Django service
 
-- The backend service is running locally on port 3030.
-- The sentiment analyzer service is running locally on port 5000.
-- The Django app is configured to use local runtime URLs in server/djangoapp/.env.
+Command:
+cd /home/alkebular/xrwvm-fullstack_developer_capstone/server && sg docker -c 'docker run -d --name dealership_local -p 8002:8000 dealership'
+
+Output:
+Container started
+
+Command:
+curl -i --max-time 15 http://127.0.0.1:8002/ | head -n 10
+
+Output:
+HTTP/1.1 200 OK
+Server: gunicorn
+
+4) Notes
+
+- IBM Cloud steps were intentionally skipped and replaced with local runtime verification.
+- Artifact names and file arrangement were preserved.

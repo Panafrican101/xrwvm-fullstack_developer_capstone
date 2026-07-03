@@ -1,4 +1,4 @@
-Sentiment Run Log
+Sentiment Run Log (Local)
 
 Command:
 curl -s http://127.0.0.1:5000/analyze/Fantastic%20services
@@ -7,7 +7,7 @@ Output:
 {"sentiment": "positive"}
 
 Command:
-curl -s http://127.0.0.1:3030/
+curl -s http://127.0.0.1:5000/analyze/This%20was%20terrible
 
 Output:
-Welcome to the Mongoose API
+{"sentiment": "negative"}

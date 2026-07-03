@@ -1,4 +1,4 @@
-Backend Run Log
+Backend Run Log (Local)
 
 Command:
 cd /home/alkebular/xrwvm-fullstack_developer_capstone/server/database && node app.js
