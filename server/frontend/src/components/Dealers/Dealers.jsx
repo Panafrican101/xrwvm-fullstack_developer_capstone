@@ -8,14 +8,16 @@ const Dealers = () => {
   const [dealersList, setDealersList] = useState([]);
   // let [state, setState] = useState("")
   let [states, setStates] = useState([])
+  const [selectedState, setSelectedState] = useState("All")
 
   // let root_url = window.location.origin
   let dealer_url ="/djangoapp/get_dealers";
-  
-  let dealer_url_by_state = "/djangoapp/get_dealers/";
  
   const filterDealers = async (state) => {
-    dealer_url_by_state = dealer_url_by_state+state;
+    setSelectedState(state)
+    const dealer_url_by_state = state === "All"
+      ? dealer_url
+      : "/djangoapp/get_dealers/" + state;
     const res = await fetch(dealer_url_by_state, {
       method: "GET"
     });
@@ -43,6 +45,11 @@ const Dealers = () => {
     }
   }
   useEffect(() => {
+    const initialState = new URLSearchParams(window.location.search).get('state');
+    if (initialState && initialState !== 'All') {
+      get_dealers().then(() => filterDealers(initialState));
+      return;
+    }
     get_dealers();
   },[]);  
 
@@ -60,8 +67,7 @@ return(
       <th>Address</th>
       <th>Zip</th>
       <th>
-      <select name="state" id="state" onChange={(e) => filterDealers(e.target.value)}>
-      <option value="" selected disabled hidden>State</option>
+        <select name="state" id="state" value={selectedState} onChange={(e) => filterDealers(e.target.value)}>
       <option value="All">All States</option>
       {states.map(state => (
           <option value={state}>{state}</option>
