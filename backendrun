@@ -1,0 +1,25 @@
+Backend Run Log
+
+Command:
+cd /home/alkebular/xrwvm-fullstack_developer_capstone/server/database && node app.js
+
+Output:
+Server is running on http://localhost:3030
+
+Command:
+curl -s http://127.0.0.1:3030/
+
+Output:
+Welcome to the Mongoose API
+
+Command:
+curl -s http://127.0.0.1:3030/fetchDealers | head -c 220
+
+Output:
+[{"id":1,"city":"El Paso","state":"Texas","address":"3 Nova Court","zip":"88563","lat":31.6948,"long":-106.3,"short_name":"Holdlamis","full_name":"Holdlamis Car Dealership"},{"id":2,"city":"Minneapolis","state":"Minnesota"...
+
+Command:
+curl -s http://127.0.0.1:3030/fetchReviews | head -c 220
+
+Output:
+[{"id":1,"name":"Berkly Shepley","dealership":15,"review":"Total grid-enabled service-desk","purchase":true,"purchase_date":"07/11/2020","car_make":"Audi","car_model":"A6","car_year":2010,"sentiment":"neutral"},{"id":2,...

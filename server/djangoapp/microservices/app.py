@@ -1,7 +1,13 @@
+import os
 from flask import Flask
+import nltk
 from nltk.sentiment import SentimentIntensityAnalyzer
 import json
 app = Flask("Sentiment Analyzer")
+
+nltk_data_dir = os.path.dirname(__file__)
+if nltk_data_dir not in nltk.data.path:
+    nltk.data.path.append(nltk_data_dir)
 
 sia = SentimentIntensityAnalyzer()
 
