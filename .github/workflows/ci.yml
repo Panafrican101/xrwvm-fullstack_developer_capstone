@@ -1,0 +1,29 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Display workflow context
+        run: |
+          echo "Running CI Pipeline"
+          echo "Repository: $GITHUB_REPOSITORY"
+          echo "Branch: $GITHUB_REF_NAME"
+
+      - name: Validate frontend package file
+        run: test -f server/frontend/package.json
+
+      - name: Validate backend requirements file
+        run: test -f server/requirements.txt
+
+      - name: CI success marker
+        run: echo "Workflow completed successfully"
